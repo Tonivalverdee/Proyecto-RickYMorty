@@ -1,3 +1,10 @@
+<?php
+require 'classes.php';
+$api = new API();
+$personajes = $api->obtenerPersonajes();
+$presentador = new Personajes($personajes);
+?>
+
 <!doctype html>
 <html lang="es">
 <head>
@@ -9,13 +16,8 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1 class="text-center text-general">Personajes de Rick y Morty</h1>
-        <?php
-        require 'classes.php';
-
-        $api = new API();
-        $personajes = $api->obtenerPersonajes();
-        $presentador = new Personajes($personajes);
+        <h1 class="text-center text-general">Personajes de Rick y Morty</h1><br>
+        <?=
         $presentador->mostrarCuadricula();
         ?>
     </div>
