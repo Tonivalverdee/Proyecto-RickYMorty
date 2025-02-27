@@ -1,5 +1,5 @@
 <?php
-require 'classes.php';
+require_once 'classes.php';
 $api = new API();
 $personajes = $api->obtenerPersonajes();
 $presentador = new Personajes($personajes);
