@@ -1,7 +1,15 @@
 <?php
 require_once 'classes.php';
+
 $api = new API();
-$personajes = $api->obtenerPersonajes();
+$api_url = 'https://rickandmortyapi.com/api/character'; // URL de la API
+$personajes = $api->obtenerPersonajes($api_url);
+
+if (empty($personajes)) {
+    echo "<p>No se pudieron cargar los personajes. Intenta de nuevo más tarde.</p>";
+    exit;
+}
+
 $presentador = new Personajes($personajes);
 ?>
 
@@ -16,11 +24,16 @@ $presentador = new Personajes($personajes);
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <h1 id="top" class="text-center text-general">Personajes de Rick y Morty</h1><br>
+    <a id="boton" href="../index.php"><button class="btn btn-primary">Volver</button></a>
     <div class="container mt-5">
-        <h1 class="text-center text-general">Personajes de Rick y Morty</h1><br>
-        <?=
-        $presentador->mostrarCuadricula();
-        ?>
+        <?= $presentador->mostrarCuadricula(); ?>
+    </div>
+    <div class="box-subir">
+        <a href="#top">
+            <img class="subir" src="./flecha-blanca-png.webp" alt="subir">
+            <br>
+        </a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
