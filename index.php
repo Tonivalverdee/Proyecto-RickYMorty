@@ -25,7 +25,7 @@ $presentador = new Personajes($personajes);
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <h1 id="top" class="text-center text-general">Personajes de Rick y Morty</h1><br>
+    <br><br><h1 id="top" class="text-center text-general">Personajes de Rick y Morty</h1><br>
     <a id="boton" href="../index.php"><button class="btn btn-primary">Volver</button></a>
     <div class="container mt-5">
         <?= $presentador->mostrarCuadricula(); ?>
