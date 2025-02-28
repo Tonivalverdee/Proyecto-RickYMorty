@@ -1,5 +1,6 @@
 <?php
-require_once 'classes.php';
+require_once 'classes/classes.php';
+require_once 'classes/api.php';
 
 $api = new API();
 $api_url = 'https://rickandmortyapi.com/api/character'; // URL de la API
